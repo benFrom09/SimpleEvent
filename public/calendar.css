@@ -1,0 +1,49 @@
+.w-100 {
+    width:100%;
+    height: calc(100vh - 200px);
+}
+
+.calendar td {
+    padding:1rem;
+    border:1px solid #ccc;
+    width:14.29%;
+    vertical-align: top;
+}
+
+.calendar-overmonth {
+    opacity:0.5;
+}
+
+.calendar-navigation {
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.calendar-btn {
+    padding: 0.5rem;
+    border-radius: 3px;
+    background:#007bff;
+    color:#fff;
+    margin: 0.3rem;
+    text-decoration: none;
+
+    box-shadow: 0 6px 10px 0 #0000001a,0 1px 0 #0000001a,0 3px -2px #0003;
+}
+
+.calendar-btn-add {
+    padding:0;
+    display:block;
+    width:60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius:50%;
+    text-align:center;
+
+    text-decoration: none;
+}
+
+.calendar-btn:hover {
+    text-decoration:none;
+}

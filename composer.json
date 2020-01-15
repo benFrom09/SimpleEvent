@@ -1,0 +1,16 @@
+{
+    "name": "ben09/event",
+    "authors": [
+        {
+            "name": "benFrom09",
+            "email": "ben09.dev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"src",
+            "SimpleEvent\\":"src/Calendar"
+        }
+    },
+    "require": {}
+}
