@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="name">Titre:</label>
-    <input type="text" name="name" id="name" value="<?=isset($data['name']) ? $data['name'] : 'Mon super événement';?> "
+    <input class="form-control" type="text" name="name" id="name" value="<?=isset($data['name']) ? $data['name'] : 'Mon super événement';?> "
         required>
 </div>
 <div class="form-group">

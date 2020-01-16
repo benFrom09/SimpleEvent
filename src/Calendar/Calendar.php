@@ -104,8 +104,13 @@ class Calendar
      * @return void
      */
     public function show():void {
-        $content = "<div id=\"Calendar\"> . <h2>{$this->toString()}</h2>
-                    <table class=\"calendar w-100\"";
+        $content = "<div id=\"Calendar\">
+        <div class=\"calendar-flex\">
+            {$this->showNavigation()}
+            <h2>{$this->toString()}</h2>
+        </div>
+            <table class=\"calendar w-100\"";
+
         for($i = 0; $i < $this->getWeeks();$i++) {
             $content .= "<tr>";
             foreach($this->getDays() as $k => $day) {
@@ -177,14 +182,14 @@ class Calendar
      *
      * @return void
      */
-    public function showNavigation():void {
+    public function showNavigation():string {
         $previous = self::_BASE_URI ."?month=" . $this->previous()->getMonth() . "&year=" . $this->previous()->getyear() ;
         $next = self::_BASE_URI ."?month=" . $this->next()->getMonth() . "&year=" . $this->next()->getyear() ;
         $content = "<div class=\"calendar-navigation\">
-                    <a class=\"calendar-btn\" href=\"$previous\">&lt</a>
-                    <a class=\"calendar-btn\" href=\"$next\">&gt</a>
+                    <a class=\"calendar-btn round\" href=\"$previous\">&lt</a>
+                    <a class=\"calendar-btn round\" href=\"$next\">&gt</a>
                     </div>";
-        echo $content;
+        return $content;
     }
 
     /**

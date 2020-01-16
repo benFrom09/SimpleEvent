@@ -44,11 +44,8 @@ elseif ($p === "add") {
         $validator = new EventPostValidator();
          $errors = $validator->validate($data);
          if(empty($errors)) {
-            $event->setName($data['name']);
-            $event->setDescription($data['description']);
-            $event->setStartTime(DateTime::createFromFormat('Y-m-d H:i',$data['date'] . " " . $data['start_time'])->format('Y-m-d H:i:s'));
-            $event->setEndTime(DateTime::createFromFormat('Y-m-d H:i',$data['date'] . " " . $data['end_time'])->format('Y-m-d H:i:s'));
             $events = new Events(getPdo());
+            $event = $events->hydrate(new Event(),$data);
             $events->create($event);
             header('location:/index.php?sucess=1');
         }

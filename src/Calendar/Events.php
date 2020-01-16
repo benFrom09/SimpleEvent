@@ -56,4 +56,22 @@ class Events
                         ]);
     }
 
+    public function update(Event $event):bool{
+        $query = $this->pdo->prepare('UPDATE events SET name = ? , description = ?, start_time = ?, end_time = ? WHERE id = ?');
+        return $query->execute([$event->getName(),
+                        $event->getDescription(),
+                        $event->getStartTime()->format('Y-m-d H:i:s'),
+                        $event->getEndTime()->format('Y-m-d H:i:s'),
+                        $event->getId()
+                        ]);
+    }
+
+    public function hydrate(Event $event,array $data = []) {
+            $event->setName($data['name']);
+            $event->setDescription($data['description']);
+            $event->setStartTime(DateTime::createFromFormat('Y-m-d H:i',$data['date'] . " " . $data['start_time'])->format('Y-m-d H:i:s'));
+            $event->setEndTime(DateTime::createFromFormat('Y-m-d H:i',$data['date'] . " " . $data['end_time'])->format('Y-m-d H:i:s'));
+            return $event;
+    }
+
 }

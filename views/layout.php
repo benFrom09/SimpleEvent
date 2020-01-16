@@ -9,6 +9,11 @@
     <title><?= $title;?></title>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-nav bg-primary">
+            <h1>SimpleEvent</h1>
+        </nav>
+    </header>
     <?= $content; ?>
 </body>
 </html>
